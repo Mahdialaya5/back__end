@@ -10,9 +10,9 @@ const cors = require("cors");
 connectdb()
 
 const corsOptions = {
-    origin: '*', 
-    credentials: true, 
-  };
+  origin: '*', 
+  credentials: true, 
+};
 app.use(cors(corsOptions));
 
 const path = require('path');
