@@ -13,7 +13,7 @@ exports.Auth = async (req, res, next) => {
    
       return res.status(401).json({ msg: "Unauthorized" });
     }
-
+    console.log("01");
     const decoded = jwt.verify(token,process.env.secretKey);
     if (!decoded) {
       return res.status(401).json({ msg: "Unauthorized" });
@@ -22,6 +22,7 @@ exports.Auth = async (req, res, next) => {
     if (!user) {
       return res.status(404).json({ msg: "User not found" });
     }
+    console.log("02");
    req.user = user; 
     next();
   } catch (error) {

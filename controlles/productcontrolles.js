@@ -4,9 +4,13 @@ const cloudinary = require("../config/cloudinary");
 // ✅ إضافة منتج (مع الفئة)
 exports.AddProduct = async (req, res) => {
   try {
+    console.log("1");
     const product = new Product(req.body);
+    console.log("2");
     product.img = req.file.path;
+    console.log("4");
     await product.save();
+    console.log("5");
     return res.status(201).send({ msg: "product added" });
   } catch (error) {
     return res.status(503).send({ msg: error.message });
