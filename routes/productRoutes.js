@@ -7,7 +7,7 @@ const isAdmin = require('../middlewares/isAdmin');
 
 
 router.get('/', controlles.GetProducts);
-router.post("/",upload.single("file"),Auth,isAdmin,controlles.AddProduct);   
+router.post("/",upload.single("file"),Auth,controlles.AddProduct);   
 
 router.get('/categories',controlles.GetCategories);     
 router.get('/stats/categories',controlles.GetCategoryStats); 
