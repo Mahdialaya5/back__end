@@ -14,15 +14,18 @@ exports.Auth = async (req, res, next) => {
       return res.status(401).json({ msg: "Unauthorized" });
     }
     console.log("01");
-    const decoded = jwt.verify(token,process.env.secretKey);
+    const decoded = jwt.verify(token,process.env.secretkey);
+    console.log("02");
     if (!decoded) {
       return res.status(401).json({ msg: "Unauthorized" });
     }
+    console.log("04");
  const user = await User.findById(decoded._id).select("-password");
+ console.log(user);
     if (!user) {
       return res.status(404).json({ msg: "User not found" });
     }
-    console.log("02");
+    console.log("05");
    req.user = user; 
     next();
   } catch (error) {
